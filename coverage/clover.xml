@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1748204326594" clover="3.2.0">
+  <project timestamp="1748204326594" name="All files">
+    <metrics statements="98" coveredstatements="98" conditionals="3" coveredconditionals="2" methods="21" coveredmethods="21" elements="122" coveredelements="121" complexity="0" loc="98" ncloc="98" packages="2" files="6" classes="6"/>
+    <package name="animals">
+      <metrics statements="82" coveredstatements="82" conditionals="3" coveredconditionals="2" methods="11" coveredmethods="11"/>
+      <file name="cat.ts" path="/Users/elis/Developer/misc/tech-tests/Frontend-Animal-Test/src/animals/cat.ts">
+        <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="4" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+      <file name="dinosaur.ts" path="/Users/elis/Developer/misc/tech-tests/Frontend-Animal-Test/src/animals/dinosaur.ts">
+        <metrics statements="19" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="8" type="stmt"/>
+        <line num="19" count="8" type="stmt"/>
+        <line num="20" count="8" type="stmt"/>
+        <line num="21" count="8" type="stmt"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="29" count="65" type="stmt"/>
+        <line num="31" count="65" type="stmt"/>
+        <line num="34" count="65" type="stmt"/>
+        <line num="37" count="65" type="stmt"/>
+        <line num="41" count="65" type="stmt"/>
+        <line num="42" count="65" type="stmt"/>
+        <line num="43" count="65" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/elis/Developer/misc/tech-tests/Frontend-Animal-Test/src/animals/index.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="3" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="33" count="19" type="cond" truecount="0" falsecount="1"/>
+        <line num="36" count="207" type="stmt"/>
+      </file>
+      <file name="parrot.ts" path="/Users/elis/Developer/misc/tech-tests/Frontend-Animal-Test/src/animals/parrot.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+      </file>
+      <file name="poodle.ts" path="/Users/elis/Developer/misc/tech-tests/Frontend-Animal-Test/src/animals/poodle.ts">
+        <metrics statements="18" coveredstatements="18" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="19" count="4" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="game">
+      <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
+      <file name="index.ts" path="/Users/elis/Developer/misc/tech-tests/Frontend-Animal-Test/src/game/index.ts">
+        <metrics statements="16" coveredstatements="16" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="10"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="41" count="64" type="stmt"/>
+        <line num="42" count="64" type="stmt"/>
+        <line num="43" count="64" type="stmt"/>
+        <line num="45" count="64" type="stmt"/>
+        <line num="46" count="64" type="stmt"/>
+        <line num="50" count="64" type="stmt"/>
+        <line num="51" count="64" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

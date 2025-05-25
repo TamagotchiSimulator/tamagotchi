@@ -17,22 +17,25 @@ export interface AnimalStats {
   happiness: number;
   sleep: number;
 }
+
 interface AnimalInterface {
   name: string;
   type: AnimalType;
   stats: AnimalStats;
 }
-
+export type RateChangePerSecond = AnimalStats;
 export abstract class Animal implements AnimalInterface {
   abstract id: string;
   abstract type: AnimalType;
   abstract stats: AnimalStats;
+  abstract rateChangePerSecond: RateChangePerSecond;
+
   constructor(public name: string = "") {
     this.name = name;
   }
 
-  public getAnimal() {
-    return this;
+  public clampValues(value: number) {
+    return Math.max(0, Math.min(value, 100));
   }
 
   abstract update(delta: number): void;

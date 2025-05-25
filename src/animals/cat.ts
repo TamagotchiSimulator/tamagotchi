@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { Animal } from "./index";
+import { Animal, AnimalStats, RateChangePerSecond } from "./index";
 import { AnimalType } from "./index";
 
 export const BASE_CAT_STATS = {
@@ -8,16 +8,37 @@ export const BASE_CAT_STATS = {
   sleep: 70,
 };
 
+export const CAT_RATE_CHANGE_PER_SECOND = {
+  hunger: 0.5,
+  happiness: 0.25,
+  sleep: 0.75,
+};
 export class Cat extends Animal {
   id = randomUUID();
   type: AnimalType = AnimalType.Cat;
-  stats = BASE_CAT_STATS;
+  stats: AnimalStats = BASE_CAT_STATS;
+  rateChangePerSecond: RateChangePerSecond = CAT_RATE_CHANGE_PER_SECOND;
 
   constructor(name: string) {
     super(name);
+    this.stats = { ...BASE_CAT_STATS };
   }
 
   update(delta: number): void {
-    console.log(`${this.name} is updating with delta ${delta}`);
+    const deltaAsSeconds = delta / 1000;
+
+    const clampedHunger = this.clampValues(
+      this.stats.hunger + this.rateChangePerSecond.hunger * deltaAsSeconds
+    );
+    const clampedHappiness = this.clampValues(
+      this.stats.happiness - this.rateChangePerSecond.happiness * deltaAsSeconds
+    );
+    const clampedSleep = this.clampValues(
+      this.stats.sleep + this.rateChangePerSecond.sleep * deltaAsSeconds
+    );
+
+    this.stats.hunger = clampedHunger;
+    this.stats.happiness = clampedHappiness;
+    this.stats.sleep = clampedSleep;
   }
 }

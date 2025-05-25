@@ -14,6 +14,36 @@ describe("Game initialisation", () => {
   });
 });
 
+describe("The game starts up and runs as expected", () => {
+  const mockPerformanceNow = jest.spyOn(performance, "now");
+  const mockRequestAnimationFrame = jest.spyOn(window, "requestAnimationFrame");
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it("Should initialise the game and the tick", () => {
+    const game = new Game();
+    const garyTheDinosaur = new Dinosaur("Gary");
+    game.addAnimal(garyTheDinosaur);
+    game.start();
+    expect(mockPerformanceNow).toHaveBeenCalled();
+    expect(mockRequestAnimationFrame).toHaveBeenCalled();
+  });
+
+  it("Should tick, and update the animal stats", () => {
+    const game = new Game();
+    const garyTheDinosaur = new Dinosaur("Gary");
+    const initialHappiness = garyTheDinosaur.stats.happiness;
+    jest.useFakeTimers();
+    game.addAnimal(garyTheDinosaur);
+    game.start();
+    expect(garyTheDinosaur.stats).toBeDefined();
+    jest.advanceTimersByTime(1000);
+    expect(garyTheDinosaur.stats.happiness).toBeLessThan(initialHappiness);
+  });
+});
+
 describe("Game animal handling", () => {
   it("Should add an animal to the game", () => {
     const game = new Game();

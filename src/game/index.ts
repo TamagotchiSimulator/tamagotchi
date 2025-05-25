@@ -29,6 +29,11 @@ export class Game {
     return this.animals;
   }
 
+  public start() {
+    this.lastTime = performance.now();
+    this.tick();
+  }
+
   /**
    * The tick is the beating heart of our little tamagochi
    */
