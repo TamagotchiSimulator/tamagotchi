@@ -10,6 +10,7 @@ export class Game {
   private lastTime: number;
 
   private animals: Animal[];
+  private stateSubscribers: ((animals: Animal[]) => void)[] = [];
 
   constructor() {
     this.delta = 0;
@@ -34,6 +35,18 @@ export class Game {
     this.tick();
   }
 
+  public onAnimalsChange(callback: (animals: Animal[]) => void) {
+    this.stateSubscribers.push(callback);
+    return () => {
+      this.stateSubscribers = this.stateSubscribers.filter(
+        (sub) => sub !== callback
+      );
+    };
+  }
+
+  private broadcastChanges() {
+    this.stateSubscribers.forEach((callback) => callback(this.getAnimals()));
+  }
   /**
    * The tick is the beating heart of our little tamagochi
    */
@@ -47,8 +60,29 @@ export class Game {
   }
 
   private update(delta: number) {
+    let hasUpdated = false;
     this.animals.forEach((animal) => {
+      const preUpdateStats = animal.getStats();
       animal.update(delta);
+      const postUpdateStats = animal.getStats();
+
+      const totalPreValue = Object.values(preUpdateStats).reduce(
+        (acc, curr) => acc + curr,
+        0
+      );
+
+      const totalPostValue = Object.values(postUpdateStats).reduce(
+        (acc, curr) => acc + curr,
+        0
+      );
+
+      if (totalPreValue !== totalPostValue) {
+        hasUpdated = true;
+      }
     });
+
+    if (hasUpdated) {
+      this.broadcastChanges();
+    }
   }
 }

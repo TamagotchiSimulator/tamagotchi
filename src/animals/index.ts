@@ -38,5 +38,9 @@ export abstract class Animal implements AnimalInterface {
     return Math.max(0, Math.min(value, 100));
   }
 
+  public getStats() {
+    return this.stats;
+  }
+
   abstract update(delta: number): void;
 }
