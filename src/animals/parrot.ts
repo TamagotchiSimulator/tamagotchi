@@ -1,4 +1,3 @@
-import { randomUUID } from "crypto";
 import { Animal, RateChangePerSecond } from "./index";
 import { AnimalType } from "./index";
 
@@ -14,7 +13,6 @@ export const PARROT_RATE_CHANGE_PER_SECOND = {
 };
 
 export class Parrot extends Animal {
-  id = randomUUID();
   type: AnimalType = AnimalType.Parrot;
   stats = { ...BASE_PARROT_STATS };
   rateChangePerSecond: RateChangePerSecond = PARROT_RATE_CHANGE_PER_SECOND;

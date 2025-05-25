@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 /**
  * Animal base class for all animals.
  * Allows for the creation of animals, with a name.
@@ -25,12 +26,11 @@ interface AnimalInterface {
 }
 export type RateChangePerSecond = AnimalStats;
 export abstract class Animal implements AnimalInterface {
-  abstract id: string;
   abstract type: AnimalType;
   abstract stats: AnimalStats;
   abstract rateChangePerSecond: RateChangePerSecond;
 
-  constructor(public name: string = "") {
+  constructor(public name: string = "", public id: string = uuidv4()) {
     this.name = name;
   }
 
@@ -39,7 +39,7 @@ export abstract class Animal implements AnimalInterface {
   }
 
   public getStats() {
-    return this.stats;
+    return { ...this.stats };
   }
 
   abstract update(delta: number): void;

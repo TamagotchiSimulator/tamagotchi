@@ -27,7 +27,7 @@ export class Game {
   }
 
   public getAnimals() {
-    return this.animals;
+    return [...this.animals];
   }
 
   public start() {
