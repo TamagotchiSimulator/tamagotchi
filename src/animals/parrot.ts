@@ -21,6 +21,17 @@ export class Parrot extends Animal {
     super(name);
   }
 
+  public feed(): void {
+    this.stats.hunger -= 10;
+  }
+
+  public sleep(): void {
+    this.stats.sleep += 10;
+  }
+
+  public play(): void {
+    this.stats.happiness -= 10;
+  }
   update(delta: number): void {
     const deltaAsSeconds = delta / 1000;
 

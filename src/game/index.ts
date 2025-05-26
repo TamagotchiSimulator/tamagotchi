@@ -2,7 +2,11 @@
  * Contains the game logic including the game tick
  */
 
-import { Animal } from "../animals";
+import { Animal, AnimalType } from "../animals";
+import { Poodle } from "../animals/poodle";
+import { Cat } from "../animals/cat";
+import { Parrot } from "../animals/parrot";
+import { Dinosaur } from "../animals/dinosaur";
 
 export class Game {
   private delta: number;
@@ -20,6 +24,29 @@ export class Game {
 
   public addAnimal(animal: Animal) {
     this.animals.push(animal);
+  }
+
+  public createAndAddAnimal(type: AnimalType, name: string): void {
+    let newAnimal: Animal;
+    switch (type) {
+      case AnimalType.Poodle:
+        newAnimal = new Poodle(name);
+        break;
+      case AnimalType.Cat:
+        newAnimal = new Cat(name);
+        break;
+      case AnimalType.Parrot:
+        newAnimal = new Parrot(name);
+        break;
+      case AnimalType.Dinosaur:
+        newAnimal = new Dinosaur(name);
+        break;
+      default:
+        console.error(`Unknown animal type: ${type}`);
+        return;
+    }
+    this.addAnimal(newAnimal);
+    this.broadcastChanges();
   }
 
   public removeAnimal(id: string) {

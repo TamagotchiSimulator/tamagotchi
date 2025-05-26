@@ -22,7 +22,19 @@ export class Poodle extends Animal {
     super(name);
   }
 
-  update(delta: number): void {
+  public feed(): void {
+    this.stats.hunger -= 10;
+  }
+
+  public play(): void {
+    this.stats.happiness += 10;
+  }
+
+  public sleep(): void {
+    this.stats.sleep -= 10;
+  }
+
+  public update(delta: number): void {
     const deltaAsSeconds = delta / 1000;
 
     const clampedHunger = this.clampValues(

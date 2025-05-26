@@ -1,0 +1,21 @@
+.progress-bar {
+  width: 100%;
+  padding: 2px;
+  background-color: #e2e2e2;
+  border-radius: 4px;
+}
+
+.progress-bar-fill {
+  border-radius: 8px;
+  min-height: 8px;
+  height: 100%;
+  background-color: #008f24;
+}
+
+.progress-bar-fill--danger {
+  background-color: #ff0000;
+}
+
+.progress-bar-fill--warning {
+  background-color: #ffa500;
+}

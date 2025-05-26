@@ -1,86 +1,49 @@
-import { useEffect, useState } from "react";
 import "./App.css";
-import { Game } from "./game";
-import { Poodle } from "./animals/poodle";
-
-const Animal = () => {
-  const [game] = useState(() => new Game());
-  const [animals, setAnimals] = useState<ReturnType<typeof game.getAnimals>>(
-    []
-  );
-
-  useEffect(() => {
-    console.log(animals);
-  }, [animals]);
-
-  useEffect(() => {
-    const unsubscribe = game.onAnimalsChange(setAnimals);
-    game.start();
-
-    return () => {
-      unsubscribe();
-    };
-  }, [game]);
-
-  return (
-    <>
-      <div className="animal-container">
-        <h1>Poodle</h1>
-        <div className="animal-animal">
-          <img
-            src="src/poodle.svg"
-            alt="Your animal"
-            className="animal-image"
-          />
-          <h2>Animal Name</h2>
-          <button
-            onClick={() => {
-              game.addAnimal(new Poodle("Steve"));
-              console.log(game.getAnimals());
-            }}
-          >
-            asdsa
-          </button>
-        </div>
-        <div className="animal-stats">
-          <div className="stat">
-            <strong>Hunger:</strong>
-            <div className="meter">
-              <div
-                className="meter-fill"
-                style={{ width: `${animals[0]?.stats?.hunger}%` }}
-              ></div>
-            </div>
-            <button className="action-button">Feed</button>
-          </div>
-          <div className="stat">
-            <strong>Happiness:</strong>
-            <div className="meter">
-              <div className="meter-fill" style={{ width: "80%" }}></div>
-            </div>
-            <button className="action-button">Play</button>
-          </div>
-          <div className="stat">
-            <strong>Sleep:</strong>
-            <div className="meter">
-              <div className="meter-fill" style={{ width: "50%" }}></div>
-            </div>
-            <button className="action-button">Rest</button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+import { useGameContext } from "./contexts/use-game-context";
+import { Card } from "./components/card";
+import {
+  NEW_ANIMAL_DIALOG_QUERY_KEY,
+  NewAnimalDialog,
+} from "./features/new-animal-dialog";
+import { useQueryState } from "nuqs";
+import { parseAsBoolean } from "nuqs";
+import { AnimalCard } from "./features/animal-card";
+import { AnimalList } from "./features/animal-list";
 
 function App() {
-  return (
-    <div className="animal-page">
-      <button>Add Animal</button>
+  const { animals } = useGameContext();
+  const [, setIsNewAnimalDialogOpen] = useQueryState(
+    NEW_ANIMAL_DIALOG_QUERY_KEY,
+    parseAsBoolean.withDefault(false)
+  );
 
-      <div className="animal-wrapper">
-        <Animal />
-      </div>
+  return (
+    <div className="page">
+      {animals.length === 0 ? (
+        <Card title="Welcome to the magical world of animal care!">
+          <p>To get started, let's choose our first pet.</p>
+          <button
+            onClick={() => {
+              setIsNewAnimalDialogOpen((prev) => !prev);
+            }}
+          >
+            Get started
+          </button>
+        </Card>
+      ) : (
+        <>
+          <AnimalList>
+            {animals.map((animal) => (
+              <AnimalCard key={animal.id} animal={animal} />
+            ))}
+          </AnimalList>
+
+          <button onClick={() => setIsNewAnimalDialogOpen(true)}>
+            Add new animal
+          </button>
+        </>
+      )}
+      <NewAnimalDialog />
     </div>
   );
 }

@@ -1,0 +1,34 @@
+.animal-card {
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.animal-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.animal-card-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animal-card-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: 100px;
+  max-height: 100px;
+  margin: 0 auto;
+}
+
+.animal-card-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: center;
+}

@@ -23,6 +23,16 @@ export class Dinosaur extends Animal {
     this.stats = { ...BASE_DINOSAUR_STATS };
   }
 
+  public feed(): void {
+    this.stats.hunger -= 10;
+  }
+  public play(): void {
+    this.stats.happiness += 10;
+  }
+  public sleep(): void {
+    this.stats.sleep -= 10;
+  }
+
   update(delta: number): void {
     const deltaAsSeconds = delta / 1000;
 

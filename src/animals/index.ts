@@ -30,6 +30,10 @@ export abstract class Animal implements AnimalInterface {
   abstract stats: AnimalStats;
   abstract rateChangePerSecond: RateChangePerSecond;
 
+  abstract feed(): void;
+  abstract play(): void;
+  abstract sleep(): void;
+
   constructor(public name: string = "", public id: string = uuidv4()) {
     this.name = name;
   }
