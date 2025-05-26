@@ -1,7 +1,7 @@
 import { parseAsBoolean, useQueryState } from "nuqs";
 import { useEffect, useRef } from "react";
 import { AnimalType } from "../../animals";
-import styles from "./NewAnimalDialog.module.css";
+import styles from "./styles.module.css";
 import { useGameContext } from "../../contexts/use-game-context";
 import { isAnimalType } from "../../helpers/animal-type-typeguard";
 
@@ -17,9 +17,9 @@ export const NewAnimalDialog = () => {
 
   useEffect(() => {
     if (isOpen) {
-      dialogRef.current?.showModal();
+      dialogRef.current?.showModal?.();
     } else {
-      dialogRef.current?.close();
+      dialogRef.current?.close?.();
     }
   }, [isOpen, setIsNewAnimalDialogOpen]);
 
@@ -37,8 +37,12 @@ export const NewAnimalDialog = () => {
     }
   };
 
+  if (!isOpen) {
+    return null;
+  }
+
   return (
-    <dialog ref={dialogRef}>
+    <dialog ref={dialogRef} data-testid="new-animal-dialog">
       <form method="create-new-animal" onSubmit={handleSubmit}>
         <h1>Create a new animal</h1>
         <label htmlFor="animal-name">Animal name</label>
@@ -48,6 +52,7 @@ export const NewAnimalDialog = () => {
           name="animal-name"
           required
           maxLength={128}
+          data-testid="animal-name-test-id"
         />
         <fieldset>
           <legend>Select Animal Type</legend>
@@ -67,7 +72,9 @@ export const NewAnimalDialog = () => {
             </div>
           ))}
         </fieldset>
-        <button type="submit">Create</button>
+        <button type="submit" data-testid="create-button">
+          Create
+        </button>
         <button
           type="button"
           onClick={() => {

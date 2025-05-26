@@ -1,6 +1,7 @@
 import { Cat } from "../animals/cat";
 import { Dinosaur } from "../animals/dinosaur";
 import { Game } from "./index";
+import { jest } from "@jest/globals";
 
 describe("Game initialisation", () => {
   it("Should create a game", () => {

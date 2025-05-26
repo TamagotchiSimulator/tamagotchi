@@ -15,6 +15,8 @@ export class Game {
 
   private animals: Animal[];
   private stateSubscribers: ((animals: Animal[]) => void)[] = [];
+  private animationFrameId: number | null = null;
+  private isRunning: boolean = false;
 
   constructor() {
     this.delta = 0;
@@ -58,8 +60,19 @@ export class Game {
   }
 
   public start() {
-    this.lastTime = performance.now();
-    this.tick();
+    if (!this.isRunning) {
+      this.isRunning = true;
+      this.lastTime = performance.now();
+      this.tick();
+    }
+  }
+
+  public stop() {
+    this.isRunning = false;
+    if (this.animationFrameId !== null) {
+      cancelAnimationFrame(this.animationFrameId);
+      this.animationFrameId = null;
+    }
   }
 
   public onAnimalsChange(callback: (animals: Animal[]) => void) {
@@ -78,12 +91,16 @@ export class Game {
    * The tick is the beating heart of our little tamagochi
    */
   private tick() {
+    if (!this.isRunning) {
+      return;
+    }
+
     const currentTime = performance.now();
     this.delta = currentTime - this.lastTime;
     this.lastTime = currentTime;
 
     this.update(this.delta);
-    window.requestAnimationFrame(() => this.tick());
+    this.animationFrameId = window.requestAnimationFrame(() => this.tick());
   }
 
   private update(delta: number) {

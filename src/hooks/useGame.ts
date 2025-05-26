@@ -18,6 +18,7 @@ export function useGame() {
 
     return () => {
       unsubscribe();
+      game.stop();
     };
   }, [game]);
 
