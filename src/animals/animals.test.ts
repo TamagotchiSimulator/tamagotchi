@@ -85,6 +85,33 @@ describe("Can update animal stats", () => {
           BASE_POODLE_STATS.sleep + POODLE_RATE_CHANGE_PER_SECOND.sleep * 2,
       });
     });
+
+    it("Should update the poodle stats when we feed it", () => {
+      const myPoodle = new Poodle("Pauline");
+      myPoodle.feed();
+      expect(myPoodle.stats).toEqual({
+        ...BASE_POODLE_STATS,
+        hunger: BASE_POODLE_STATS.hunger - 10,
+      });
+    });
+
+    it("Should update the poodle stats when we play with it", () => {
+      const myPoodle = new Poodle("Pauline");
+      myPoodle.play();
+      expect(myPoodle.stats).toEqual({
+        ...BASE_POODLE_STATS,
+        happiness: BASE_POODLE_STATS.happiness + 10,
+      });
+    });
+
+    it("Should update the poodle stats when we put it to sleep (not the sad way)", () => {
+      const myPoodle = new Poodle("Pauline");
+      myPoodle.sleep();
+      expect(myPoodle.stats).toEqual({
+        ...BASE_POODLE_STATS,
+        sleep: BASE_POODLE_STATS.sleep - 10,
+      });
+    });
   });
 
   describe("Cat stat updates", () => {
@@ -96,6 +123,33 @@ describe("Can update animal stats", () => {
         happiness:
           BASE_CAT_STATS.happiness - CAT_RATE_CHANGE_PER_SECOND.happiness * 2,
         sleep: BASE_CAT_STATS.sleep + CAT_RATE_CHANGE_PER_SECOND.sleep * 2,
+      });
+    });
+
+    it("Should update the cat stats when we feed it", () => {
+      const myCat = new Cat("Mittens");
+      myCat.feed();
+      expect(myCat.stats).toEqual({
+        ...BASE_CAT_STATS,
+        hunger: BASE_CAT_STATS.hunger - 10,
+      });
+    });
+
+    it("Should update the cat stats when we play with it", () => {
+      const myCat = new Cat("Mittens");
+      myCat.play();
+      expect(myCat.stats).toEqual({
+        ...BASE_CAT_STATS,
+        happiness: BASE_CAT_STATS.happiness + 10,
+      });
+    });
+
+    it("Should update the cat stats when we put it to sleep (not the sad way)", () => {
+      const myCat = new Cat("Mittens");
+      myCat.sleep();
+      expect(myCat.stats).toEqual({
+        ...BASE_CAT_STATS,
+        sleep: BASE_CAT_STATS.sleep - 10,
       });
     });
   });
@@ -114,6 +168,32 @@ describe("Can update animal stats", () => {
           BASE_PARROT_STATS.sleep + PARROT_RATE_CHANGE_PER_SECOND.sleep * 2,
       });
     });
+    it("Should update the parrot stats when we feed it", () => {
+      const myParrot = new Parrot("Polly");
+      myParrot.feed();
+      expect(myParrot.stats).toEqual({
+        ...BASE_PARROT_STATS,
+        hunger: BASE_PARROT_STATS.hunger - 10,
+      });
+    });
+
+    it("Should update the parrot stats when we play with it", () => {
+      const myParrot = new Parrot("Polly");
+      myParrot.play();
+      expect(myParrot.stats).toEqual({
+        ...BASE_PARROT_STATS,
+        happiness: BASE_PARROT_STATS.happiness + 10,
+      });
+    });
+
+    it("Should update the parrot stats when we put it to sleep (not the sad way)", () => {
+      const myParrot = new Parrot("Polly");
+      myParrot.sleep();
+      expect(myParrot.stats).toEqual({
+        ...BASE_PARROT_STATS,
+        sleep: BASE_PARROT_STATS.sleep - 10,
+      });
+    });
   });
 
   describe("Dinosaur stat updates", () => {
@@ -129,6 +209,32 @@ describe("Can update animal stats", () => {
           DINOSAUR_RATE_CHANGE_PER_SECOND.happiness * 2,
         sleep:
           BASE_DINOSAUR_STATS.sleep + DINOSAUR_RATE_CHANGE_PER_SECOND.sleep * 2,
+      });
+    });
+    it("Should update the dinosaur stats when we feed it", () => {
+      const myDinosaur = new Dinosaur("Rex");
+      myDinosaur.feed();
+      expect(myDinosaur.stats).toEqual({
+        ...BASE_DINOSAUR_STATS,
+        hunger: BASE_DINOSAUR_STATS.hunger - 10,
+      });
+    });
+
+    it("Should update the dinosaur stats when we play with it", () => {
+      const myDinosaur = new Dinosaur("Rex");
+      myDinosaur.play();
+      expect(myDinosaur.stats).toEqual({
+        ...BASE_DINOSAUR_STATS,
+        happiness: BASE_DINOSAUR_STATS.happiness + 10,
+      });
+    });
+
+    it("Should update the dinosaur stats when we put it to sleep (not the sad way)", () => {
+      const myDinosaur = new Dinosaur("Rex");
+      myDinosaur.sleep();
+      expect(myDinosaur.stats).toEqual({
+        ...BASE_DINOSAUR_STATS,
+        sleep: BASE_DINOSAUR_STATS.sleep - 10,
       });
     });
   });
