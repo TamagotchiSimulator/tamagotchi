@@ -1,5 +1,4 @@
-import { Animal, RateChangePerSecond } from "./index";
-import { AnimalType } from "./index";
+import { Animal, RateChangePerSecond, AnimalType } from "./index";
 
 export const BASE_PARROT_STATS = {
   hunger: 40,
