@@ -2,8 +2,8 @@ import styles from "./styles.module.css";
 
 interface ProgressBarProps {
   value: number;
-  warningThreshold?: number;
-  dangerThreshold?: number;
+  warningThreshold: number;
+  dangerThreshold: number;
   inverse?: boolean;
 }
 
@@ -13,12 +13,13 @@ export const ProgressBar = ({
   dangerThreshold,
   inverse,
 }: ProgressBarProps) => {
-  const isDanger =
-    dangerThreshold &&
-    (inverse ? value <= dangerThreshold : value >= dangerThreshold);
-  const isWarning =
-    warningThreshold &&
-    (inverse ? value <= warningThreshold : value >= warningThreshold);
+  const isDanger = inverse
+    ? value <= dangerThreshold
+    : value >= dangerThreshold;
+
+  const isWarning = inverse
+    ? value <= warningThreshold
+    : value >= warningThreshold;
   return (
     <div className={styles["progress-bar"]}>
       <div
