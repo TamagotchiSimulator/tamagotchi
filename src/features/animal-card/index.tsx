@@ -11,10 +11,16 @@ export const AnimalCard = ({ animal }: AnimalCardProps) => {
   const { happiness, hunger, sleep } = animal.stats;
 
   return (
-    <Card title={`${animal.name} (${animal.type})`}>
+    <Card
+      title={`${animal.name} (${animal.type}) ${animal.isDead() ? "🪦" : ""}`}
+    >
       <div className={styles["animal-card"]}>
         <div className={styles["animal-card-image-container"]}>
-          <img src={Poodle} alt="Poodle" />
+          <img
+            src={Poodle}
+            alt="Poodle"
+            className={animal.isDead() ? styles["animal-card-image--dead"] : ""}
+          />
         </div>
         <div className={styles["animal-stats"]}>
           <span className="stat-label">Hunger</span>
@@ -38,9 +44,15 @@ export const AnimalCard = ({ animal }: AnimalCardProps) => {
           />
         </div>
         <div className={styles["animal-card-actions"]}>
-          <button onClick={() => animal.feed()}>Feed</button>
-          <button onClick={() => animal.play()}>Play</button>
-          <button onClick={() => animal.sleep()}>Sleep</button>
+          <button onClick={() => animal.feed()} disabled={animal.isDead()}>
+            Feed
+          </button>
+          <button onClick={() => animal.play()} disabled={animal.isDead()}>
+            Play
+          </button>
+          <button onClick={() => animal.sleep()} disabled={animal.isDead()}>
+            Sleep
+          </button>
         </div>
       </div>
     </Card>

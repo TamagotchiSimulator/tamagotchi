@@ -38,6 +38,33 @@ export abstract class Animal implements AnimalInterface {
     this.name = name;
   }
 
+  public updateStats(delta: number) {
+    const deltaAsSeconds = delta / 1000;
+    const hungerModifier = this.stats.hunger > 75 ? 2 : 1;
+    const sleepModifier = this.stats.sleep > 75 ? 2 : 1;
+
+    const clampedHunger = this.clampValues(
+      this.stats.hunger + this.rateChangePerSecond.hunger * deltaAsSeconds
+    );
+    const clampedHappiness = this.clampValues(
+      this.stats.happiness -
+        this.rateChangePerSecond.happiness *
+          deltaAsSeconds *
+          hungerModifier *
+          sleepModifier
+    );
+
+    const clampedSleep = this.clampValues(
+      this.stats.sleep + this.rateChangePerSecond.sleep * deltaAsSeconds
+    );
+
+    return {
+      hunger: clampedHunger,
+      happiness: clampedHappiness,
+      sleep: clampedSleep,
+    };
+  }
+
   public clampValues(value: number) {
     return Math.max(0, Math.min(value, 100));
   }
@@ -46,5 +73,19 @@ export abstract class Animal implements AnimalInterface {
     return { ...this.stats };
   }
 
-  abstract update(delta: number): void;
+  /**
+   * Assuming that the only way for the animal to die is
+   * that it is too hungry.
+   */
+  public isDead() {
+    return this.stats.hunger >= 100;
+  }
+
+  public update(delta: number): void {
+    const { hunger, happiness, sleep } = this.updateStats(delta);
+
+    this.stats.hunger = hunger;
+    this.stats.happiness = happiness;
+    this.stats.sleep = sleep;
+  }
 }

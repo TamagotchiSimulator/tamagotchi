@@ -26,6 +26,11 @@
   margin: 0 auto;
 }
 
+.animal-card-image--dead {
+  filter: grayscale(100%);
+  transform: rotate(180deg);
+}
+
 .animal-card-actions {
   display: flex;
   flex-direction: row;
