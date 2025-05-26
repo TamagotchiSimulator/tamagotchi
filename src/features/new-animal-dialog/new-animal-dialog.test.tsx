@@ -1,30 +1,9 @@
 import { screen } from "@testing-library/react";
-import { render, RenderOptions } from "@testing-library/react";
+import { render as customRender } from "../../test-utils";
 import "@testing-library/jest-dom";
-import { GameProvider } from "../../providers/game-provider";
-import { NuqsTestingAdapter } from "nuqs/adapters/testing";
 import { NewAnimalDialog } from "./index";
-import React, { ReactElement } from "react";
 import userEvent from "@testing-library/user-event";
 import { jest } from "@jest/globals";
-
-// Custom render function for this test file to control search params
-const customRender = (
-  ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper"> & { searchParams?: string }
-) => {
-  const { searchParams, ...renderOptions } = options || {};
-
-  const AppProviders = ({ children }: { children: React.ReactNode }) => {
-    return (
-      <NuqsTestingAdapter searchParams={searchParams}>
-        <GameProvider>{children}</GameProvider>
-      </NuqsTestingAdapter>
-    );
-  };
-
-  return render(ui, { wrapper: AppProviders, ...renderOptions });
-};
 
 describe("Dialog reacts to url state", () => {
   it("dialog is hidden by default", () => {

@@ -1,27 +1,25 @@
-import { parseAsBoolean, useQueryState } from "nuqs";
 import { useEffect, useRef } from "react";
 import { AnimalType } from "../../animals";
 import styles from "./styles.module.css";
 import { useGameContext } from "../../contexts/use-game-context";
 import { isAnimalType } from "../../helpers/animal-type-typeguard";
+import { useNewAnimalDialog } from "../../hooks/use-new-animal-dialog";
 
 export const NEW_ANIMAL_DIALOG_QUERY_KEY = "new-animal-dialog";
 
 export const NewAnimalDialog = () => {
   const { game } = useGameContext();
-  const [isOpen, setIsNewAnimalDialogOpen] = useQueryState(
-    NEW_ANIMAL_DIALOG_QUERY_KEY,
-    parseAsBoolean.withDefault(false)
-  );
+  const { isNewAnimalDialogOpen, setIsNewAnimalDialogOpen } =
+    useNewAnimalDialog();
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isNewAnimalDialogOpen) {
       dialogRef.current?.showModal?.();
     } else {
       dialogRef.current?.close?.();
     }
-  }, [isOpen, setIsNewAnimalDialogOpen]);
+  }, [isNewAnimalDialogOpen, setIsNewAnimalDialogOpen]);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -37,7 +35,7 @@ export const NewAnimalDialog = () => {
     }
   };
 
-  if (!isOpen) {
+  if (!isNewAnimalDialogOpen) {
     return null;
   }
 

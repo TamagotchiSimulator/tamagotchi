@@ -14,6 +14,7 @@ module.exports = {
   moduleNameMapper: {
     nanoid: require.resolve("nanoid"),
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",
+    "\\.(svg|png|jpg|jpeg|gif)$": "<rootDir>/src/__mocks__/fileMock.js",
   },
   extensionsToTreatAsEsm: [".ts", ".tsx"],
   transform: {
