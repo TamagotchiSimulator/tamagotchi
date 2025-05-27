@@ -107,14 +107,19 @@ legend {
 .animal-selector__photo {
   width: 60px;
   height: 60px;
-  border: 2px dashed #ccc;
+
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 10px;
   text-align: center;
   border-radius: 8px;
-  background-color: #f9f9f9;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
 }
 
 .animal-selector__label {

@@ -2,7 +2,7 @@ import { Animal } from "../../animals";
 import { Card } from "../../components/card";
 import { ProgressBar } from "../../components/progress-bar";
 import styles from "./styles.module.css";
-import Poodle from "../../poodle.svg";
+import { getAnimalImage } from "../../helpers/get-animal-image";
 
 interface AnimalCardProps {
   animal: Animal;
@@ -17,7 +17,7 @@ export const AnimalCard = ({ animal }: AnimalCardProps) => {
       <div className={styles["animal-card"]}>
         <div className={styles["animal-card-image-container"]}>
           <img
-            src={Poodle}
+            src={getAnimalImage(animal.type)}
             alt="Poodle"
             className={animal.isDead() ? styles["animal-card-image--dead"] : ""}
           />

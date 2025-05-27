@@ -4,6 +4,7 @@ import styles from "./styles.module.css";
 import { useGameContext } from "../../contexts/use-game-context";
 import { isAnimalType } from "../../helpers/animal-type-typeguard";
 import { useNewAnimalDialog } from "../../hooks/use-new-animal-dialog";
+import { getAnimalImage } from "../../helpers/get-animal-image";
 
 export const NEW_ANIMAL_DIALOG_QUERY_KEY = "new-animal-dialog";
 
@@ -76,7 +77,9 @@ export const NewAnimalDialog = () => {
                   data-testid={`${animalType}--testId`}
                 />
                 <div className={styles["animal-selector__content"]}>
-                  <div className={styles["animal-selector__photo"]}>Photo</div>
+                  <div className={styles["animal-selector__photo"]}>
+                    <img src={getAnimalImage(animalType)} alt={animalType} />
+                  </div>
                   <span className={styles["animal-selector__label"]}>
                     {animalType.toLocaleUpperCase()}
                   </span>
