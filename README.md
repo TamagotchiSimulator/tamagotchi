@@ -36,10 +36,14 @@ This is (hopefully) a very simple approach to the problem that was posed. The ma
 Rather than depend on using setInterval, I decided to go for the more dependable requestAnimationFrame method, which allowed me to have a bit more control over how often the game updated. This also allows the game to run at the frame rate that the user's browser is capable of - so the stats should
 update at a consistent rate despite other resources the browser may be using.
 
+The animals are all based on an abstract animal class, doing this allowed me to create a far simpler method of updating the stats - but allowed me to create variances of the animals in an incredibly quick way. 
+
 The main game logic is then subscribed to by the react app, the entry point is still the `main.tsx` file. This is where the react app is mounted, and the game is started. We see here that there are a few providers, the `GameProvider` which gives us a single source of truth for the actual game instance (mainly the list of animals, and their current stats), and the NuqsAdapter which lets us use the URL to store the state of the game.
 
 Using the `useGame` hook, the components re-render when a change is made
-in the main game loop. In theory, by separating these concerns, we have a
+in the main game loop. This was incredibly useful as it made testing far simpler compared to an entire game written in a single react hook.
+
+In theory, by separating these concerns, we have a
 way of further adapting the game logic without having to change the fundamental game loop. For example, if we wanted the authentic 1990s frame
 rate of the game, we could do this in the react app.
 
