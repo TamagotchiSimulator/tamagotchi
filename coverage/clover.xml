@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1748359855498" clover="3.2.0">
+  <project timestamp="1748359855498" name="All files">
+    <metrics statements="188" coveredstatements="186" conditionals="49" coveredconditionals="46" methods="67" coveredmethods="66" elements="304" coveredelements="298" complexity="0" loc="188" ncloc="188" packages="12" files="18" classes="18"/>
+    <package name="src">
+      <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="test-utils.tsx" path="/Users/elisglynne/Development/misc/tamagotchi/src/test-utils.tsx">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="10" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="14" type="stmt"/>
+        <line num="13" count="14" type="stmt"/>
+        <line num="20" count="14" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.animals">
+      <metrics statements="59" coveredstatements="59" conditionals="10" coveredconditionals="9" methods="23" coveredmethods="23"/>
+      <file name="cat.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/animals/cat.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="16" count="13" type="stmt"/>
+        <line num="17" count="13" type="stmt"/>
+        <line num="18" count="13" type="stmt"/>
+        <line num="21" count="13" type="stmt"/>
+        <line num="22" count="13" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+      <file name="dinosaur.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/animals/dinosaur.ts">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="17" count="14" type="stmt"/>
+        <line num="18" count="14" type="stmt"/>
+        <line num="19" count="14" type="stmt"/>
+        <line num="22" count="14" type="stmt"/>
+        <line num="23" count="14" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/animals/index.ts">
+        <metrics statements="21" coveredstatements="21" conditionals="10" coveredconditionals="9" methods="7" coveredmethods="7"/>
+        <line num="8" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="37" count="50" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="50" type="stmt"/>
+        <line num="42" count="73" type="stmt"/>
+        <line num="43" count="73" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="73" type="cond" truecount="2" falsecount="0"/>
+        <line num="46" count="73" type="stmt"/>
+        <line num="49" count="73" type="stmt"/>
+        <line num="57" count="73" type="stmt"/>
+        <line num="61" count="73" type="stmt"/>
+        <line num="69" count="219" type="stmt"/>
+        <line num="73" count="128" type="stmt"/>
+        <line num="81" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="85" count="73" type="stmt"/>
+        <line num="87" count="73" type="stmt"/>
+        <line num="88" count="73" type="stmt"/>
+        <line num="89" count="73" type="stmt"/>
+      </file>
+      <file name="parrot.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/animals/parrot.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="20" count="7" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+      <file name="poodle.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/animals/poodle.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="17" count="16" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="19" count="16" type="stmt"/>
+        <line num="22" count="16" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.card">
+      <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/elisglynne/Development/misc/tamagotchi/src/components/card/index.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="10" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.progress-bar">
+      <metrics statements="4" coveredstatements="4" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
+      <file name="index.tsx" path="/Users/elisglynne/Development/misc/tamagotchi/src/components/progress-bar/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="21" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="21" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.contexts">
+      <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="use-game-context.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/contexts/use-game-context.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="9" count="13" type="stmt"/>
+        <line num="10" count="13" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="11" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.animal-card">
+      <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+      <file name="index.tsx" path="/Users/elisglynne/Development/misc/tamagotchi/src/features/animal-card/index.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.get-started">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="index.tsx" path="/Users/elisglynne/Development/misc/tamagotchi/src/features/get-started/index.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.features.new-animal-dialog">
+      <metrics statements="24" coveredstatements="23" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="4"/>
+      <file name="index.tsx" path="/Users/elisglynne/Development/misc/tamagotchi/src/features/new-animal-dialog/index.tsx">
+        <metrics statements="24" coveredstatements="23" conditionals="6" coveredconditionals="6" methods="5" coveredmethods="4"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="8" type="stmt"/>
+        <line num="14" count="8" type="stmt"/>
+        <line num="15" count="8" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="18" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="25" count="8" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="cond" truecount="3" falsecount="0"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="39" count="8" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="43" count="5" type="stmt"/>
+        <line num="67" count="20" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.game">
+      <metrics statements="58" coveredstatements="57" conditionals="10" coveredconditionals="9" methods="19" coveredmethods="19"/>
+      <file name="index.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/game/index.ts">
+        <metrics statements="58" coveredstatements="57" conditionals="10" coveredconditionals="9" methods="19" coveredmethods="19"/>
+        <line num="12" count="29" type="stmt"/>
+        <line num="14" count="29" type="stmt"/>
+        <line num="16" count="29" type="stmt"/>
+        <line num="17" count="29" type="stmt"/>
+        <line num="18" count="29" type="stmt"/>
+        <line num="19" count="29" type="stmt"/>
+        <line num="22" count="29" type="stmt"/>
+        <line num="23" count="29" type="stmt"/>
+        <line num="24" count="29" type="stmt"/>
+        <line num="28" count="11" type="stmt"/>
+        <line num="37" count="6" type="cond" truecount="5" falsecount="0"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="54" count="5" type="stmt"/>
+        <line num="55" count="5" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="63" count="10" type="stmt"/>
+        <line num="70" count="16" type="cond" truecount="1" falsecount="0"/>
+        <line num="71" count="16" type="stmt"/>
+        <line num="72" count="16" type="stmt"/>
+        <line num="73" count="16" type="stmt"/>
+        <line num="82" count="14" type="stmt"/>
+        <line num="83" count="14" type="cond" truecount="1" falsecount="0"/>
+        <line num="84" count="14" type="stmt"/>
+        <line num="85" count="14" type="stmt"/>
+        <line num="94" count="14" type="stmt"/>
+        <line num="95" count="14" type="stmt"/>
+        <line num="96" count="14" type="stmt"/>
+        <line num="97" count="14" type="stmt"/>
+        <line num="103" count="67" type="stmt"/>
+        <line num="112" count="208" type="cond" truecount="0" falsecount="1"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="116" count="208" type="stmt"/>
+        <line num="117" count="208" type="stmt"/>
+        <line num="118" count="208" type="stmt"/>
+        <line num="120" count="208" type="stmt"/>
+        <line num="121" count="208" type="stmt"/>
+        <line num="132" count="208" type="stmt"/>
+        <line num="133" count="208" type="stmt"/>
+        <line num="134" count="64" type="stmt"/>
+        <line num="135" count="64" type="stmt"/>
+        <line num="136" count="64" type="stmt"/>
+        <line num="138" count="64" type="stmt"/>
+        <line num="139" count="192" type="stmt"/>
+        <line num="143" count="64" type="stmt"/>
+        <line num="144" count="192" type="stmt"/>
+        <line num="148" count="64" type="cond" truecount="1" falsecount="0"/>
+        <line num="149" count="62" type="stmt"/>
+        <line num="153" count="208" type="cond" truecount="1" falsecount="0"/>
+        <line num="154" count="62" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.helpers">
+      <metrics statements="7" coveredstatements="7" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="2"/>
+      <file name="animal-type-typeguard.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/helpers/animal-type-typeguard.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="8" count="1" type="stmt"/>
+      </file>
+      <file name="get-animal-image.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/helpers/get-animal-image.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="27" type="cond" truecount="4" falsecount="0"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="12" count="5" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks">
+      <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+      <file name="use-new-animal-dialog.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/hooks/use-new-animal-dialog.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+      </file>
+      <file name="useGame.ts" path="/Users/elisglynne/Development/misc/tamagotchi/src/hooks/useGame.ts">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="10" count="15" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="16" count="14" type="stmt"/>
+        <line num="17" count="14" type="stmt"/>
+        <line num="19" count="14" type="stmt"/>
+        <line num="20" count="14" type="stmt"/>
+        <line num="21" count="14" type="stmt"/>
+        <line num="25" count="15" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.providers">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="game-provider.tsx" path="/Users/elisglynne/Development/misc/tamagotchi/src/providers/game-provider.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="14" count="15" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
