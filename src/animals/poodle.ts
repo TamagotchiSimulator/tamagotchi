@@ -2,15 +2,15 @@ import { Animal, RateChangePerSecond } from "./index";
 import { AnimalType } from "./index";
 
 export const BASE_POODLE_STATS = {
-  hunger: 60,
-  happiness: 90,
-  sleep: 60,
+  hunger: 55,
+  happiness: 50,
+  sleep: 45,
 };
 
 export const POODLE_RATE_CHANGE_PER_SECOND = {
-  happiness: 0.25,
-  hunger: 0.5,
-  sleep: 0.75,
+  happiness: 0.35,
+  hunger: 0.45,
+  sleep: 0.65,
 };
 
 export class Poodle extends Animal {

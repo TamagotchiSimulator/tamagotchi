@@ -1,14 +1,14 @@
 import { Animal, RateChangePerSecond, AnimalType } from "./index";
 
 export const BASE_PARROT_STATS = {
-  hunger: 40,
-  happiness: 60,
-  sleep: 70,
+  hunger: 45,
+  happiness: 50,
+  sleep: 45,
 };
 export const PARROT_RATE_CHANGE_PER_SECOND = {
-  hunger: 0.5,
-  happiness: 0.25,
-  sleep: 0.75,
+  hunger: 0.45,
+  happiness: 0.3,
+  sleep: 0.6,
 };
 
 export class Parrot extends Animal {

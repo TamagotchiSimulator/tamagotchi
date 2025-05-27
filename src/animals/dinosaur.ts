@@ -2,15 +2,15 @@ import { Animal, AnimalStats, RateChangePerSecond } from "./index";
 import { AnimalType } from "./index";
 
 export const BASE_DINOSAUR_STATS = {
-  hunger: 60,
-  happiness: 20,
+  hunger: 55,
+  happiness: 50,
   sleep: 50,
 };
 
 export const DINOSAUR_RATE_CHANGE_PER_SECOND = {
-  hunger: 0.5,
-  happiness: 0.25,
-  sleep: 0.75,
+  hunger: 0.75,
+  happiness: 0.35,
+  sleep: 0.45,
 };
 
 export class Dinosaur extends Animal {

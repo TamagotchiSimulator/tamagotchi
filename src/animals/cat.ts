@@ -2,9 +2,9 @@ import { Animal, AnimalStats, RateChangePerSecond } from "./index";
 import { AnimalType } from "./index";
 
 export const BASE_CAT_STATS = {
-  hunger: 40,
-  happiness: 60,
-  sleep: 70,
+  hunger: 50,
+  happiness: 45,
+  sleep: 55,
 };
 
 export const CAT_RATE_CHANGE_PER_SECOND = {
