@@ -5,7 +5,6 @@ const tsJestTransformCfg = createDefaultEsmPreset({
   module: "Node16", // or Node18/NodeNext
   target: "ESNext",
   esModuleInterop: true,
-  isolatedModules: true,
 }).transform;
 
 /** @type {import("jest").Config} **/
