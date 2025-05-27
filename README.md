@@ -1,42 +1,55 @@
-# Animals Sample App 🐩
+# Off Brand Tamagotchi Simulator 🐩
 
 > _What could be more fun than having a pet? Making your own!_
 
 ## What Is This?
 
-Your job is to create your own digital pet platform using this codebase as a starting point - how you continue is up to you!
+This is a simple tamagotchi emulator that allows you to create and manage your own collection of pets. But remember, you must take care of your pets, by feeding them, playing with them and putting them to sleep. If you don't, they will decide not to live.
 
 ## Getting Started
 
 1. Clone the project
 2. Run `bun install`
-3. Write some magic to make your pets come alive!
-4. Push up to a brand new repo and send us a link
+3. Run `bun run dev` to start the development server
+4. Open `http://localhost:5173` in your browser to view the app
+5. Start creating your own pets!
 
-## The Brief
+## Functionality
 
-- Users should be able to name animals
-- Users should be able to have multiple animals of different types
-- Playing with animals makes them happy
-- Feeding animals makes them less hungry
-- Resting animals makes them less sleepy
-- Animals start "neutral" on all metrics
-- Happiness should decrease over time
-- Hunger should increase over time
-- Sleepiness should increase over time
-- Happiness should decrease faster when sleep or hunger is full
-- Each animal type should have metrics which increase/decrease at different rates
+- Name your animals!
+- Choose from 4 different animal types (dog, cat, parrot, dinosaur)
+- Play with them to make them happy
+- Feed them to make them less hungry
+- Let them sleep to make them less sleepy
+- Each animal starts with a healthy neutral amount of happiness, hunger and sleep
+- Animal happiness decreases over time, so keep them happy!
+- Animals get hungry over time, so feed them!
+- Animals get sleepy over time, so let them have a nap
+- Make sure that you're animal doesn't get too hungry or sleepy, or their happiness will decrease faster
+- Each animal is different, so their rates will change differently to each other.
+- If an animal's hunger reaches 100, and their happiness is 0, they will sadly pass on to lands unknown.
 
-## Judging Criteria
+## General overview
 
-- All points in the brief have been followed and work as described
-- The main functionality and business logic should be tested. Each bullet point in the brief should be tested explicitly
-- Use of 3rd party libraries is permitted but should be kept to a minimum - we would like to see what you are capable of!
-- We also look at project structure, code clarity, type quality, use of bad practices and bugs.
-- Solutions forking or PRing back to the main repo will be disqualified - please upload to a new repo
+This is (hopefully) a very simple approach to the problem that was posed. The main logic of the simulator is within the game class found at `game/index.ts`. This is a simple class that takes care of the frame by frame logic of the game.
 
----
+Rather than depend on using setInterval, I decided to go for the more dependable requestAnimationFrame method, which allowed me to have a bit more control over how often the game updated. This also allows the game to run at the frame rate that the user's browser is capable of - so the stats should
+update at a consistent rate despite other resources the browser may be using.
 
-Any questions, drop us a message!
+The main game logic is then subscribed to by the react app, the entry point is still the `main.tsx` file. This is where the react app is mounted, and the game is started. We see here that there are a few providers, the `GameProvider` which gives us a single source of truth for the actual game instance (mainly the list of animals, and their current stats), and the NuqsAdapter which lets us use the URL to store the state of the game.
 
-Good Luck 🚀
+Using the `useGame` hook, the components re-render when a change is made
+in the main game loop. In theory, by separating these concerns, we have a
+way of further adapting the game logic without having to change the fundamental game loop. For example, if we wanted the authentic 1990s frame
+rate of the game, we could do this in the react app.
+
+## Testing
+
+The tests are colocated to the components and game logic, and use `jest` as well as `react-testing-library` to test the components. If you want to run these tests, you can run `bun run test` to run the tests.
+
+## Future improvements
+
+- Colour
+- Add a UI that allows us to remove the animals
+- Use a local method of storage to persist our game. Our game logic should in theory allow us to start the game with animals at a certain state, and then resume from that state when the user returns to the app. We'd save the game every X seconds and then load it when the game is instantiated next
+- Let the animals move around the screen

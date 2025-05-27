@@ -28,6 +28,10 @@ export class Game {
     this.animals.push(animal);
   }
 
+  /**
+   * Bit of a helper method so we can create a new animal, and specify
+   * the type of animal we want to create. We also pass in the name
+   */
   public createAndAddAnimal(type: AnimalType, name: string): void {
     let newAnimal: Animal;
     switch (type) {
@@ -59,6 +63,9 @@ export class Game {
     return [...this.animals];
   }
 
+  /**
+   * A public method to start the game, this allows us to get things running without manually calling tick which has far more logic
+   */
   public start() {
     if (!this.isRunning) {
       this.isRunning = true;
@@ -67,6 +74,10 @@ export class Game {
     }
   }
 
+  /**
+   * Having this stop method here allows us to reduce the likelyhood
+   * of memory leaks etc.
+   */
   public stop() {
     this.isRunning = false;
     if (this.animationFrameId !== null) {
@@ -75,6 +86,10 @@ export class Game {
     }
   }
 
+  /**
+   * Our entry point to the game class from any component that has
+   * an interest in what's happening within the game itself.
+   */
   public onAnimalsChange(callback: (animals: Animal[]) => void) {
     this.stateSubscribers.push(callback);
     return () => {
@@ -88,7 +103,10 @@ export class Game {
     this.stateSubscribers.forEach((callback) => callback(this.getAnimals()));
   }
   /**
-   * The tick is the beating heart of our little tamagochi
+   * The tick is the beating heart of our little tamagochi.
+   * Rather than use a setInterval, we use the requestAnimationFrame
+   * method to ensure that we're running at the same frame rate as
+   * the user's browser & it's generally a bit more efficient.
    */
   private tick() {
     if (!this.isRunning) {
@@ -103,6 +121,13 @@ export class Game {
     this.animationFrameId = window.requestAnimationFrame(() => this.tick());
   }
 
+  /**
+   * This update is called from the tick method, and is responsible
+   * for actually updating the state of the game. We grab the current
+   * stats and update the animals based on the current game delta time.
+   * We calculate if the stats have changed, and if they have we
+   * broadcast the changes.
+   */
   private update(delta: number) {
     let hasUpdated = false;
     this.animals.forEach((animal) => {
