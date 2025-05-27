@@ -144,12 +144,13 @@ describe("Animal stats modifiers", () => {
     cat.stats.sleep = 100;
 
     const initialHappiness = cat.stats.happiness;
-    const delta = 1000; // 1 second
+    const delta = 1000;
 
     cat.update(delta);
 
-    // Happiness should decrease more due to sleep modifier
-    expect(cat.stats.happiness).toBeLessThan(initialHappiness);
+    expect(cat.stats.happiness).toBe(
+      initialHappiness - CAT_RATE_CHANGE_PER_SECOND.happiness * 2
+    );
   });
 
   it("Should apply both hunger and sleep modifiers when both are 100", () => {
@@ -160,11 +161,13 @@ describe("Animal stats modifiers", () => {
     cat.stats.sleep = 100;
 
     const initialHappiness = cat.stats.happiness;
-    const delta = 1000; // 1 second
+    const delta = 3000;
 
     cat.update(delta);
 
-    // Happiness should decrease significantly due to both modifiers
-    expect(cat.stats.happiness).toBeLessThan(initialHappiness);
+    expect(cat.stats.happiness).toBe(
+      initialHappiness -
+        CAT_RATE_CHANGE_PER_SECOND.happiness * (delta / 1000) * 2 * 2
+    );
   });
 });
