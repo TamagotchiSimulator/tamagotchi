@@ -41,34 +41,49 @@ export const NewAnimalDialog = () => {
 
   return (
     <dialog ref={dialogRef} data-testid="new-animal-dialog">
-      <form method="create-new-animal" onSubmit={handleSubmit}>
+      <form
+        className={styles.form}
+        method="create-new-animal"
+        onSubmit={handleSubmit}
+      >
         <h1>Create a new animal</h1>
-        <label htmlFor="animal-name">Animal name</label>
-        <input
-          type="text"
-          id="animal-name"
-          name="animal-name"
-          required
-          maxLength={128}
-          data-testid="animal-name-test-id"
-        />
+        <div className={styles["form__label-input"]}>
+          <label htmlFor="animal-name">Animal name</label>
+          <input
+            type="text"
+            id="animal-name"
+            name="animal-name"
+            placeholder="Sandy"
+            required
+            maxLength={128}
+            data-testid="animal-name-test-id"
+          />
+        </div>
         <fieldset>
           <legend>Select Animal Type</legend>
-          {Object.values(AnimalType).map((animalType) => (
-            <div key={animalType} className={styles.radioGroupItem}>
-              <input
-                type="radio"
-                id={animalType}
-                name="animal-type"
-                value={animalType}
-                required
-              />
-              <label htmlFor={animalType} className={styles.radioLabel}>
-                {animalType}
+          <div className={styles["animal-selector"]}>
+            {Object.values(AnimalType).map((animalType) => (
+              <label
+                key={animalType}
+                className={styles["animal-selector__option"]}
+              >
+                <input
+                  type="radio"
+                  id={animalType}
+                  name="animal-type"
+                  value={animalType}
+                  required
+                  data-testid={`${animalType}--testId`}
+                />
+                <div className={styles["animal-selector__content"]}>
+                  <div className={styles["animal-selector__photo"]}>Photo</div>
+                  <span className={styles["animal-selector__label"]}>
+                    {animalType.toLocaleUpperCase()}
+                  </span>
+                </div>
               </label>
-              <div className={styles.photoPlaceholder}>Photo</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </fieldset>
         <button type="submit" data-testid="create-button">
           Create
@@ -79,7 +94,7 @@ export const NewAnimalDialog = () => {
             setIsNewAnimalDialogOpen(false);
           }}
         >
-          Close
+          Cancel
         </button>
       </form>
     </dialog>

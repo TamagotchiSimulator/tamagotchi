@@ -16,34 +16,30 @@ describe("AnimalCard component renders and behaves as expected", () => {
     it("renders the animal card with correct title and stats", () => {
       customRender(<AnimalCard animal={testPoodle} />);
 
-      // Check if the card title is rendered correctly
       expect(screen.getByText("Pauline (poodle)")).toBeInTheDocument();
 
-      // Check if stat labels are present
       expect(screen.getByText("Hunger")).toBeInTheDocument();
       expect(screen.getByText("Happiness")).toBeInTheDocument();
       expect(screen.getByText("Tiredness")).toBeInTheDocument();
 
-      // Check if action buttons are present
       expect(screen.getByRole("button", { name: "Feed" })).toBeInTheDocument();
       expect(screen.getByRole("button", { name: "Play" })).toBeInTheDocument();
       expect(screen.getByRole("button", { name: "Sleep" })).toBeInTheDocument();
 
-      // Check if the poodle image is present
       expect(screen.getByAltText("Poodle")).toBeInTheDocument();
     });
 
     it("sadly shows dead animal indicator when animal is no longer with us (dead)", () => {
-      // Make the animal dead by setting hunger to 100
       testPoodle.stats.hunger = 100;
+      testPoodle.stats.happiness = 0;
       customRender(<AnimalCard animal={testPoodle} />);
 
       expect(screen.getByText("Pauline (poodle) 🪦")).toBeInTheDocument();
     });
 
-    it("disables buttons when animal is dead", () => {
-      // Make the animal dead
+    it("disables buttons when animal is no longer living", () => {
       testPoodle.stats.hunger = 100;
+      testPoodle.stats.happiness = 0;
       customRender(<AnimalCard animal={testPoodle} />);
 
       expect(screen.getByRole("button", { name: "Feed" })).toBeDisabled();
@@ -63,7 +59,6 @@ describe("AnimalCard component renders and behaves as expected", () => {
       jest.advanceTimersByTime(2000);
       testPoodle.update(2000);
 
-      // Stats should have changed according to the poodle's rate change
       expect(testPoodle.stats.hunger).toBeGreaterThan(defaultHunger);
       expect(testPoodle.stats.happiness).toBeLessThan(defaultHappiness);
       expect(testPoodle.stats.sleep).toBeGreaterThan(defaultSleep);

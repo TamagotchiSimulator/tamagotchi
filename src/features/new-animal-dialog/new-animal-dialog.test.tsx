@@ -40,7 +40,7 @@ describe("We can interact with the dialog", () => {
     });
 
     const animalNameInput = screen.getByLabelText("Animal name");
-    const animalTypeRadio = screen.getByLabelText("poodle");
+    const animalTypeRadio = screen.getByTestId("poodle--testId");
     const createButton = screen.getByTestId("create-button");
 
     await userEvent.type(animalNameInput, "Doug");

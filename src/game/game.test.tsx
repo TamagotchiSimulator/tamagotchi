@@ -120,9 +120,9 @@ describe("Game animal handling", () => {
 });
 
 describe("Animal stats modifiers", () => {
-  it("Should apply hunger modifier when hunger is above 75", () => {
+  it("Should apply hunger modifier when hunger is 100", () => {
     const cat = new Cat("Mittens");
-    cat.stats.hunger = 80;
+    cat.stats.hunger = 100;
     cat.stats.happiness = 50;
     cat.stats.sleep = 30;
 
@@ -136,13 +136,12 @@ describe("Animal stats modifiers", () => {
     );
   });
 
-  it("Should apply sleep modifier when sleep is above 75", () => {
+  it("Should apply sleep modifier when sleep is 100", () => {
     const cat = new Cat("TestCat");
 
-    // Set sleep above 75 to trigger the modifier
     cat.stats.hunger = 30;
     cat.stats.happiness = 50;
-    cat.stats.sleep = 80;
+    cat.stats.sleep = 100;
 
     const initialHappiness = cat.stats.happiness;
     const delta = 1000; // 1 second
@@ -153,13 +152,12 @@ describe("Animal stats modifiers", () => {
     expect(cat.stats.happiness).toBeLessThan(initialHappiness);
   });
 
-  it("Should apply both hunger and sleep modifiers when both are above 75", () => {
+  it("Should apply both hunger and sleep modifiers when both are 100", () => {
     const cat = new Cat("TestCat");
 
-    // Set both hunger and sleep above 75 to trigger both modifiers
-    cat.stats.hunger = 80;
+    cat.stats.hunger = 100;
     cat.stats.happiness = 50;
-    cat.stats.sleep = 80;
+    cat.stats.sleep = 100;
 
     const initialHappiness = cat.stats.happiness;
     const delta = 1000; // 1 second
