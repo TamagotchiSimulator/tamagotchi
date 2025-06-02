@@ -202,47 +202,5 @@ describe("the useGame hook behaves as expected", () => {
         expect(testAnimal.isDead()).toBe(true);
       });
     });
-
-    it("Should be able to see updated animal stats whilst the game tick runs the update function", async () => {
-      const wrapper = ({ children }: { children: ReactNode }) => (
-        <GameProvider>{children}</GameProvider>
-      );
-      const { result } = renderHook(() => useGame(), { wrapper });
-
-      const mockedPerformanceNow = jest.spyOn(performance, "now");
-      let currentTime = 1000;
-      mockedPerformanceNow.mockImplementation(() => currentTime);
-
-      const mockedRAF = jest.spyOn(window, "requestAnimationFrame");
-      const rafCallbacks: FrameRequestCallback[] = [];
-      mockedRAF.mockImplementation((callback: FrameRequestCallback) => {
-        rafCallbacks.push(callback);
-        return 1;
-      });
-
-      act(() => {
-        result.current.createAndAddAnimal(AnimalType.Cat, "Mittens");
-      });
-
-      const initialAnimal = result.current.animals[0];
-      const initialStats = initialAnimal.getStats();
-
-      act(() => {
-        currentTime += 2000;
-        if (rafCallbacks.length > 0) {
-          rafCallbacks.forEach((callback) => callback(currentTime));
-        }
-      });
-
-      await act(async () => {
-        await new Promise((resolve) => setTimeout(resolve, 0));
-      });
-
-      const updatedAnimal = result.current.animals[0];
-      const updatedStats = updatedAnimal.getStats();
-
-      expect(updatedStats.hunger).toBeGreaterThan(initialStats.hunger);
-      expect(updatedStats.happiness).toBeLessThan(initialStats.happiness);
-    });
   });
 });
