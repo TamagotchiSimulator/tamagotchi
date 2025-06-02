@@ -1,15 +1,15 @@
 import { render as customRender, screen } from "../../test-utils";
 import "@testing-library/jest-dom";
 import { AnimalCard } from "./index";
-import { Poodle } from "../../animals/poodle";
+import { createAnimal, AnimalType, Animal } from "../../animals";
 import userEvent from "@testing-library/user-event";
 import { jest } from "@jest/globals";
 
 describe("AnimalCard component renders and behaves as expected", () => {
-  let testPoodle: Poodle;
+  let testPoodle: Animal;
 
   beforeEach(() => {
-    testPoodle = new Poodle("Pauline");
+    testPoodle = createAnimal(AnimalType.Poodle, "Pauline");
   });
 
   describe("Rendering", () => {

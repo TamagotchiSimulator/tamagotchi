@@ -5,7 +5,7 @@
  */
 // GameContext.tsx
 import { ReactNode } from "react";
-import { useGame } from "../hooks/useGame";
+import { useGame } from "../hooks/use-game";
 import { GameContext } from "../contexts/use-game-context";
 
 export function GameProvider({ children }: { children: ReactNode }) {

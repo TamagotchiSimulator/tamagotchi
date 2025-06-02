@@ -9,7 +9,7 @@ import { getAnimalImage } from "../../helpers/get-animal-image";
 export const NEW_ANIMAL_DIALOG_QUERY_KEY = "new-animal-dialog";
 
 export const NewAnimalDialog = () => {
-  const { game } = useGameContext();
+  const { createAndAddAnimal } = useGameContext();
   const { isNewAnimalDialogOpen, setIsNewAnimalDialogOpen } =
     useNewAnimalDialog();
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -29,7 +29,7 @@ export const NewAnimalDialog = () => {
     const animalType = formData.get("animal-type");
 
     if (animalName && isAnimalType(animalType)) {
-      game.createAndAddAnimal(animalType, animalName.toString());
+      createAndAddAnimal(animalType, animalName.toString());
       formData.delete("animal-name");
       formData.delete("animal-type");
       setIsNewAnimalDialogOpen(false);
